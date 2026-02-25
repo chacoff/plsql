@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R_PROD_DT" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="83ad8958-e0ee-4642-88ed-51b22bc34908">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="PARAMETER01" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT 1 FROM DUAL]]>
+	</queryString>
+	<field name="1" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="1"/>
+		<property name="com.jaspersoft.studio.field.label" value="1"/>
+	</field>
+	<title>
+		<band height="43" splitType="Stretch">
+			<image>
+				<reportElement x="722" y="0" width="80" height="43" uuid="a63190f5-e94a-4c7f-8a68-931c95544090">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["Arcelor_Mittal.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="220">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="61" uuid="d55f2906-a29b-4945-ad57-e0bddc1a802b"/>
+				<subreportParameter name="PARAMETER01">
+					<subreportParameterExpression><![CDATA[$P{PARAMETER01}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["/Sub_Reports/ProdReport_Production.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="61" width="802" height="1" uuid="6cef6e83-403d-4dd7-844b-250a80f701c5"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="62" width="802" height="52" uuid="73ea0618-ca71-4226-a394-c6358f976b25"/>
+				<subreportParameter name="PARAMETER01">
+					<subreportParameterExpression><![CDATA[$P{PARAMETER01}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["/Sub_Reports/ProdReport_Production_det.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="114" width="802" height="1" uuid="295e2892-55d9-4381-b465-f5f62efe04d6"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="115" width="802" height="52" uuid="66e1b21e-0aa1-4b08-a36b-54d6b18b8121">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<subreportParameter name="PARAMETER01">
+					<subreportParameterExpression><![CDATA[$P{PARAMETER01}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["/Sub_Reports/ProdReport_Downtime.jrxml"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="167" width="802" height="1" uuid="83ec9b8b-251b-4ae0-91e5-971353a48ffa"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="168" width="802" height="52" uuid="99109496-73dc-439b-be37-603bc735c802"/>
+				<subreportParameter name="PARAMETER01">
+					<subreportParameterExpression><![CDATA[$P{PARAMETER01}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["/Sub_Reports/ProdReport_Downtime_fer.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="700" y="10" width="67" height="22" forecolor="#808080" uuid="dd7a8173-0c3e-4668-9a57-318ec2e48437"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="10" width="42" height="22" forecolor="#808080" uuid="022f7941-b15a-4715-82e5-cc2a3a8ac7a9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Ref IT: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="52" y="10" width="49" height="22" forecolor="#E02323" uuid="7eabfb7d-4620-4049-a31c-5c6c945cca16"/>
+				<box>
+					<pen lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PARAMETER01}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="402" y="10" width="108" height="22" forecolor="#E02323" uuid="a098a2f6-adab-45c6-9166-f6b9e58bfc13">
+					<property name="com.jaspersoft.studio.element.name" value="Date Actuelle"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="305" y="10" width="95" height="22" forecolor="#808080" uuid="1be3951d-db56-4a45-98a6-28d577547db4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Date d'Impression: ]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="767" y="10" width="35" height="22" forecolor="#808080" uuid="0cc7aca2-30bc-4e36-90dc-96f0f65c612d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" / " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

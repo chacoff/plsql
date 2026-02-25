@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+  <name>PSI ACEB</name>
+  <classpath>C:\Users\GOMEZJA\OneDrive - ArcelorMittal\Documents\00_Dev\2026_MES\Report_ACEB\ojdbc8.jar</classpath>
+  <classpath>C:\Users\GOMEZJA\OneDrive - ArcelorMittal\Documents\00_Dev\2026_MES\Report_ACEB\oraclepki-21.6.0.0.1.jar</classpath>
+  <classpath>C:\Users\GOMEZJA\OneDrive - ArcelorMittal\Documents\00_Dev\2026_MES\Report_ACEB\osdt_cert-21.6.0.0.1.jar</classpath>
+  <classpath>C:\Users\GOMEZJA\OneDrive - ArcelorMittal\Documents\00_Dev\2026_MES\Report_ACEB\osdt_core-19.3.0.0.jar</classpath>
+  <driver>oracle.jdbc.driver.OracleDriver</driver>
+  <username>ambvsmp</username>
+  <password>2022PSImes_16</password>
+  <url>jdbc:oracle:thin:@(description=(retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=10.187.1.90))(connect_data=(service_name=gd0698234ad0c67_psi522acebd1_tp.adb.oraclecloud.com)(server=pooled))(security=(ssl_server_dn_match=no)))</url>
+  <database></database>
+  <savePassword>true</savePassword>
+  <serverAddress></serverAddress>
+</jdbcDataAdapter>

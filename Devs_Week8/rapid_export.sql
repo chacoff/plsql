@@ -1,0 +1,24 @@
+--- gets the max number version of every row
+SELECT *
+FROM XROLLPRODRG t1
+WHERE VERSION = (
+    SELECT MAX(VERSION)
+    FROM XROLLPRODRG t2
+    WHERE t2.PROFILEID = t1.PROFILEID
+      AND t2.PRODUCTID = t1.PRODUCTID
+      AND t2.ROLLGRADE = t1.ROLLGRADE
+)
+AND DTMODIFIED >= SYSDATE - (1/24);
+
+
+--- count how many rows are the same, but with different version
+SELECT count(*)
+FROM XROLLPRODRG t1
+WHERE (PROFILEID, PRODUCTID, ROLLGRADE) IN (
+    SELECT PROFILEID, PRODUCTID, ROLLGRADE
+    FROM XROLLPRODRG
+    GROUP BY PROFILEID, PRODUCTID, ROLLGRADE
+    HAVING COUNT(*) > 1
+);
+
+-- select count(*) from XROLLPRODRG;
