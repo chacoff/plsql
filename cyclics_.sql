@@ -1,6 +1,0 @@
-SELECT *
-FROM Glo_Ipcdisp
-where PROCNAME='PSI_CYCLIC';
-
-SELECT *
-FROM Glo_Timer where MANAGER='PSI_CYCLIC'
