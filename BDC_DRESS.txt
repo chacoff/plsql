@@ -1,0 +1,81 @@
+10      FORMAT( 'ID;Profil;Nuance;Derivee;Largeur palplanche;Hauteur palplanche;Degagement W ou SD;',
+        1       'Epaisseur ame SD;Vitesse entree;Vitesse dressage;Temperature max;Diam 1 R1;',
+        1       'Diam 2 R1;Diam 1 R2;Diam 2 R2;Diam 1 R3;Diam 2 R3;Diam 1 R4;Diam 2 R4;Diam 1 R5;',
+        1       'Diam 2 R5;Diam 1 R6;Diam 2 R6;Diam 1 R7;Diam 2 R7;Diam 1 R8;Diam 2 R8;Diam 1 R9;',
+        1       'Diam 2 R9;Serrage V R2;Serrage V R4;Serrage V R6;Serrage V R8;Serrage V R9;',
+        1       'Offset Ouv R2;Offset Ouv R4;Offset Ouv R6;Offset Ouv R8;',
+C       1       'Position V R2;Position V R4;Position V R6;Position V R8;Position V R9;',
+C       1       'Prereglage R2;Prereglage R4;Prereglage R6;Prereglage R8;
+        1       'Position Ax R1;Position Ax R2;',
+        1       'Position Ax R3;Position Ax R4;Position Ax R5;Position Ax R6;Position Ax R7;Position Ax R8;',
+        1       'Position Ax R9;Guide entree COP;Guide entree CPR;Table entree;Rouleau Pinceur;',
+        1       'Rouleau entree COP;Rouleau entree CPR;Rouleau sortie;Hauteur dresseuse;',
+        1       'Rem;')
+
+11      FORMAT( 'ID;GRP_MONT;NUAN_TR;PROF_LME;LARG_PPL;HAUT_PPL;DEGAGMT_W;EP_AME_SD;VITS_ENTR;VITS_DRESS;TEMP_MAX_DRESS;',
+        1       'DIAM_1_R1;DIAM_2_R1;DIAM_1_R2;DIAM_2_R2;DIAM_1_R3;DIAM_2_R3;DIAM_1_R4;DIAM_2_R4;DIAM_1_R5;DIAM_2_R5;',
+        1       'DIAM_1_R6;DIAM_2_R6;DIAM_1_R7;DIAM_2_R7;DIAM_1_R8;DIAM_2_R8;DIAM_1_R9;DIAM_2_R9;SERR_V_R2;SERR_V_R4;',
+        1       'SERR_V_R6;SERR_V_R8;SERR_V_R9;OFF_OUV_R2;OFF_OUV_R4;OFF_OUV_R6;OFF_OUV_R8;POSIT_A_R1;POSIT_A_R2;',
+        1       'POSIT_A_R3;POSIT_A_R4;POSIT_A_R5;POSIT_A_R6;POSIT_A_R7;POSIT_A_R8;POSIT_A_R9;G_ENTR_COP;',
+        1       'G_ENTR_CPR;TABLE_ENTR;RLX_PINC;RLX_ENTR_COP;RLX_ENTR_CPR;RLX_SORTI;HAUT_DRESS;REM;OUV_GRF_MIN;',
+        1       'OUV_GRF_MAX;OUV_COR_MIN;OUV_COR_MAX;OUV_COR_MAX_2;LARG_GRF_MIN;LARG_GRF_MAX;LARG_COR_MIN;',
+        1       'LARG_COR_MAX;MIMIL_THEO;LMIN_VENT;')
+
+
+
+        1       SELECT  ROWNUM||';'||
+        1               A.GRP_MONT||';'||
+        1               A.NUAN_TR||';'||A.PROF_LME||';'||
+        1               A.LARG_PPL*100||';'||A.HAUT_PPL*100||';'||
+        1               A.DEGAGMT_W*100||';'||A.EP_AME_SD*100||';'||
+        1               A.VITS_ENTR*100||';'||A.VITS_DRESS*100||';'||
+        1               A.TEMP_MAX_DRESS*100||';'||
+        1               A.DIAM_1_R1*100||';'||A.DIAM_2_R1*100||';'||
+        1               A.DIAM_1_R2*100||';'||A.DIAM_2_R2*100||';'||
+        1               A.DIAM_1_R3*100||';'||A.DIAM_2_R3*100||';'||
+        1               A.DIAM_1_R4*100||';'||A.DIAM_2_R4*100||';'||
+        1               A.DIAM_1_R5*100||';'||A.DIAM_2_R5*100||';'||
+        1               A.DIAM_1_R6*100||';'||A.DIAM_2_R6*100||';'||
+        1               A.DIAM_1_R7*100||';'||A.DIAM_2_R7*100||';'||
+        1               A.DIAM_1_R8*100||';'||A.DIAM_2_R8*100||';'||
+        1               A.DIAM_1_R9*100||';'||A.DIAM_2_R9*100||';'||
+        1               A.SERR_V_R2*100||';'||A.SERR_V_R4*100||';'||
+        1               A.SERR_V_R6*100||';'||A.SERR_V_R8*100||';'||
+        1               A.SERR_V_R9*100||';'||
+        1               A.OFF_OUV_R2*100||';'||A.OFF_OUV_R4*100||';'||
+        1               A.OFF_OUV_R6*100||';'||A.OFF_OUV_R8*100||';'||
+        1               A.POSIT_A_R1*100||';'|| A.POSIT_A_R2*100||';'||
+        1               A.POSIT_A_R3*100||';'|| A.POSIT_A_R4*100||';'||
+        1               A.POSIT_A_R5*100||';'|| A.POSIT_A_R6*100||';'||
+        1               A.POSIT_A_R7*100||';'|| A.POSIT_A_R8*100||';'||
+        1               A.POSIT_A_R9*100||';'||
+        1               A.G_ENTR_COP*100||';'||
+        1               A.G_ENTR_CPR*100||';'||
+        1               A.TABLE_ENTR*100||';'||
+        1               A.RLX_PINC*100||';'||
+        1               A.RLX_ENTR_COP*100||';'||
+        1               A.RLX_ENTR_CPR*100||';'||
+        1               A.RLX_SORTI*100||';'||
+        1               A.HAUT_DRESS*100||';'||
+        1               A.REM||';'||
+        1               B.OUV_GRF_MIN*100||';'||
+        1               B.OUV_GRF_MAX*100||';'||
+        1               B.OUV_COR_MIN*100||';'||
+        1               B.OUV_COR_MAX*100||';'||
+        1               B.OUV_COR_MAX_2*100||';'||
+        1               B.LARG_GRF_MIN*100||';'||
+        1               B.LARG_GRF_MAX*100||';'||
+        1               B.LARG_COR_MIN*100||';'||
+        1               B.LARG_COR_MAX*100||';'||
+        1               B.MIMIL_THEO*100||';'||
+        1               B.LMIN_VENT*100||';;'
+        1       FROM    DRESS_CSG_IHM A,
+        1               PROF_LME B
+        1       WHERE   A.ETAT_VERS = 'V'
+        1       AND     A.DTE_DEB_EFF <= SYSDATE
+        1       AND     A.DTE_FIN_EFF > SYSDATE
+        1       AND     B.GRP_MONT = A.GRP_MONT
+        1       AND     B.PROF_LME = A.PROF_LME
+        1       AND     B.ETAT_VERS = 'V'
+        1       AND     B.DTE_DEB_EFF <= SYSDATE
+        1       AND     B.DTE_FIN_EFF > SYSDATE
