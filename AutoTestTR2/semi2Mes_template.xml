@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+SCENARIO:    	Semi2MES_template
+
+DESCRIPTION: 	template to build telegram T_Semis2MES
+				stores defined telegram in Semi2MES variable
+				
+				can be used as it is for testing
+
+HISTORY:     	PPryimachov, 05.09.2025 - Created	
+-->
+<Scenario>
+	
+	<!-- build telegram for semis announcement -->
+	<Tests name="Build Semi2MES" description="build telegram Semi2MES"> 
+		
+		<!-- define for main telegram body -->
+		<Var name="LoadID" value="1" />
+		<Var name="Operation" value="C" /> 		<!-- always -->
+		<Var name="Dummy" value="" /> 			<!-- always -->
+		<Var name="SemiCountMax" value="" />
+		<Var name="DtShipment" value="" />
+		<Var name="WagonID" value="TEST_WAGON_2" /> 
+		<Var name="Origin" value="50" />
+		<Var name="Destination" value="50" />
+		<Var name="WagonMaxWeight" value="100000" />
+		<Var name="WagonTareWeight" value="80000" />
+		<Var name="WagonNetWeight" value="" />
+		<Var name="DtShipmentSeconds" value="" />	
+		<Var name="SemiCount" value="1" />
+		<!-- build main telegram body -->
+		<Var name="Semi2MES" value="$LoadID$|$Operation$|$Dummy$|$SemiCountMax$|$DtShipment$|$WagonID$|$Dummy$|$Origin$|$Destination$|$WagonMaxWeight$|$WagonTareWeight$|$WagonNetWeight$|$DtShipmentSeconds$|$Dummy$|$SemiCount$" />
+		
+		<!-- define typeSemi -->
+		<Var name="HeatYear" value="2025" />
+		<Var name="HeatOrigin" value="50" />
+		<Var name="HeatOriginShort" value="" />
+		<Var name="HeatID" value="05742" />
+		<Var name="Grade" value="S34" />
+		<Var name="SemiCountTypeSemi" value="40" /> 		
+		<Var name="SemiType" value="BB1" />
+		<Var name="SemiLength" value="4750" />
+		<Var name="SemiWeight" value="6939" />
+		<Var name="LotID" value="L22" />
+		<Var name="BBID" value="BB024" />
+		<Var name="Risk1" value="" />
+		<Var name="Risk2" value="" />
+		<Var name="Risk3" value="" />
+		<Var name="Risk4" value="" />
+		<Var name="Risk5" value="" />
+		<!-- add type semi to telegram -->
+		<For var="i" from="1" to="$SemiCount$" step="1">
+			<Var name="ID" value="$i$" />	
+			<Var name="typeSemi" value="$ID$|$HeatID$|$HeatYear$|$HeatOrigin$|$HeatOriginShort$|$Grade$|$SemiCountTypeSemi$|$SemiType$|$SemiLength$|$SemiWeight$|$LotID$|$BBID$|$Risk1$|$Risk2$|$Risk3$|$Risk4$|$Risk5$|$Dummy$" />
+			<Var name="Semi2MES" value="$Semi2MES$|$typeSemi$|" />
+		</For>
+			
+		<PrintLine text="Semi2MES = $Semi2MES$" />
+					
+	</Tests> <!-- build telegram for semis announcement -->
+	
+	
+</Scenario>

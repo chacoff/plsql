@@ -1,0 +1,83 @@
+<Scenario>
+
+  
+  <Tests name="ConnectToDatabase">
+    <UseDatabase connectionName="Belval_dev" connect="true"/>
+    <IfPassed>
+      <PrintLine text="Connected to database"/>
+    </IfPassed>
+  </Tests>
+
+  
+  <Var name="Rows" source="excel" file="$WorkspacePath$\data\Heat2MESEnteredToday.xlsx" worksheet="Sheet1"/>
+  <Var name="rowCount" value="$Rows:COUNT$"/>
+  <DbCommand name="Get Rowcnt 4 loop">
+    <Bind name="Cnt" var="RCnt" type="String" value="0000000000"/>
+       begin :Cnt := $rowCount$ - 1; end;
+  </DbCommand>
+
+  <Tests name="Process Excel Rows" stopOnFailure="true">
+
+    <!-- loop through Excel rows -->
+    <For var="i" from="0" to="$RCnt$" step="1">
+
+      <!-- assign variables directly from Excel -->
+      <Var name="HeatNo" value="$Rows[$i$:0]$"/>
+      <Var name="HeatYear" value="$Rows[$i$:1]$"/>
+      <Var name="HeatOrigin" value="$Rows[$i$:2]$"/>
+      <Var name="HeatOriginShort" value="$Rows[$i$:3]$"/>
+      <Var name="MixedZone" value="$Rows[$i$:4]$"/>
+      <Var name="PlannedGrade" value="$Rows[$i$:5]$"/>
+      <Var name="Grade" value="$Rows[$i$:6]$"/>
+      <Var name="dtChanged" value=""/>
+      <Var name="Remark" value="$Rows[$i$:8]$"/>
+      <Var name="Filler" value="$Rows[$i$:9]$"/>
+
+      <Var name="C" value="$Rows[$i$:10]$"/>
+      <Var name="Mn" value="$Rows[$i$:11]$"/>
+      <Var name="P" value="$Rows[$i$:12]$"/>
+      <Var name="S" value="$Rows[$i$:13]$"/>
+      <Var name="N" value="$Rows[$i$:14]$"/>
+      <Var name="Si" value="$Rows[$i$:15]$"/>
+      <Var name="Al" value="$Rows[$i$:16]$"/>
+      <Var name="Cu" value="$Rows[$i$:17]$"/>
+      <Var name="Ni" value="$Rows[$i$:18]$"/>
+      <Var name="Cr" value="$Rows[$i$:19]$"/>
+      <Var name="V" value="$Rows[$i$:20]$"/>
+      <Var name="Nb" value="$Rows[$i$:21]$"/>
+      <Var name="Mo" value="$Rows[$i$:22]$"/>
+      <Var name="Ti" value="$Rows[$i$:23]$"/>
+      <Var name="B" value="$Rows[$i$:24]$"/>
+      <Var name="As" value="$Rows[$i$:25]$"/>
+      <Var name="Zr" value="$Rows[$i$:26]$"/>
+      <Var name="Sn" value="$Rows[$i$:27]$"/>
+      <Var name="Ca" value="$Rows[$i$:28]$"/>
+      <Var name="H" value="$Rows[$i$:29]$"/>
+      <Var name="Bi" value="$Rows[$i$:30]$"/>
+      <Var name="Ce" value="$Rows[$i$:31]$"/>
+      <Var name="O" value="$Rows[$i$:32]$"/>
+      <Var name="Pb" value="$Rows[$i$:33]$"/>
+      <Var name="Sb" value="$Rows[$i$:34]$"/>
+      <Var name="Zn" value="$Rows[$i$:35]$"/>
+
+      <!-- build telegram -->
+      <Var name="Telegram"
+           value="$HeatNo$|$HeatYear$|$HeatOrigin$|$HeatOriginShort$|$MixedZone$|$PlannedGrade$|$Grade$|$dtChanged$|$Remark$|$Filler$|$C$|$Mn$|$P$|$S$|$N$|$Si$|$Al$|$Cu$|$Ni$|$Cr$|$V$|$Nb$|$Mo$|$Ti$|$B$|$As$|$Zr$|$Sn$|$Ca$|$H$|$Bi$|$Ce$|$O$|$Pb$|$Sb$|$Zn$|"/>
+
+      <PrintLine text="Sending telegram: $Telegram$"/>
+
+      <!-- send telegram -->
+      <UploadTlg
+          name="Send Heat2MES Telegram"
+          report="true"
+          table="TCQ_ASIA_R"
+          messageType="Heat2MES"
+          messageSender="ASIA"
+          content="$Telegram$"
+          wait="true"/>
+
+    </For>
+
+  </Tests>
+
+</Scenario>
