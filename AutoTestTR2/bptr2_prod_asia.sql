@@ -9,3 +9,9 @@ SELECT *
 FROM VU_STOCK_DP
 WHERE AA_COUL = '2026' AND SITON='STK';
 --ORDER BY 2;
+
+--
+SELECT column_name
+FROM all_tab_columns
+WHERE table_name = 'VU_COULEE'
+ORDER BY column_id;

@@ -32,18 +32,18 @@ HISTORY:     	PPryimachov, 05.09.2025 - Created
 		<Var name="Semi2MES" value="$LoadID$|$Operation$|$Dummy$|$SemiCountMax$|$DtShipment$|$WagonID$|$Dummy$|$Origin$|$Destination$|$WagonMaxWeight$|$WagonTareWeight$|$WagonNetWeight$|$DtShipmentSeconds$|$Dummy$|$SemiCount$" />
 		
 		<!-- define typeSemi -->
-		<Var name="HeatYear" value="2025" />
-		<Var name="HeatOrigin" value="50" />
-		<Var name="HeatOriginShort" value="" />
-		<Var name="HeatID" value="05742" />
-		<Var name="Grade" value="S34" />
+		<Var name="HeatYear" value="2025" /> <!-- AA_COUL -->
+		<Var name="HeatOrigin" value="50" /> <!-- CO_FOURN -->
+		<Var name="HeatOriginShort" value="" /> 
+		<Var name="HeatID" value="05742" /> <!-- NUM_COUL -->
+		<Var name="Grade" value="S34" /> <!-- NUAN_AC_T2 -->
 		<Var name="SemiCountTypeSemi" value="40" /> 		
-		<Var name="SemiType" value="BB1" />
-		<Var name="SemiLength" value="4750" />
-		<Var name="SemiWeight" value="6939" />
-		<Var name="LotID" value="L22" />
-		<Var name="BBID" value="BB024" />
-		<Var name="Risk1" value="" />
+		<Var name="SemiType" value="BB1" /> <!-- TYPE_DP -->
+		<Var name="SemiLength" value="4750" /> <!-- LONG_STK -->
+		<Var name="SemiWeight" value="6939" /> <!-- PDS_THEO -->
+		<Var name="LotID" value="L22" /> <!-- LOT? -->
+		<Var name="BBID" value="BB024" /> <!-- ? -->
+		<Var name="Risk1" value="" /> <!-- ? -->
 		<Var name="Risk2" value="" />
 		<Var name="Risk3" value="" />
 		<Var name="Risk4" value="" />

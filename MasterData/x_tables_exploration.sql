@@ -32,5 +32,5 @@ ORDER BY occurrence_count DESC;
 -- find specific column in tables
 SELECT table_name, column_name
 FROM all_tab_columns
-WHERE table_name IN ('XROLLPROF', 'XROLLPROD', 'XROLLPRODS', 'XROLLPRODRG')
+WHERE table_name IN ('XROLLPROF', 'XROLLPROD', 'XROLLPROD', 'XROLLPRODRG')
 AND column_name = 'ROLLOUT';
